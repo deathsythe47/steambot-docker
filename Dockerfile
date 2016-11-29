@@ -20,7 +20,7 @@ ENV USER steambot
 
 # copy over the steambot binaries
 USER root
-COPY ChatterBotAPI.dll Newtonsoft.Json.dll protobuf-net.dll SteamAuth.dll SteamBot.exe SteamKit2.dll SteamTrade.dll .
+COPY ChatterBotAPI.dll Newtonsoft.Json.dll protobuf-net.dll SteamAuth.dll SteamBot.exe SteamKit2.dll SteamTrade.dll ./
 RUN chown steambot:steambot *
 RUN mkdir -p /mnt/config
 RUN chown steambot:steambot /mnt/config
