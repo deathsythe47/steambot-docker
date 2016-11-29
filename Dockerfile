@@ -3,7 +3,7 @@ FROM ubuntu:14.04
 MAINTAINER Dan Padgett <dumbledore3@gmail.com>
 
 RUN apt-get update
-RUN apt-get install -y mono-complete
+RUN apt-get install -y mono-complete expect-dev
 
 RUN useradd -ms /bin/bash steambot
 
@@ -26,6 +26,6 @@ RUN mkdir -p /mnt/config
 RUN chown steambot:steambot /mnt/config
 VOLUME /mnt/config
 USER steambot
-RUN ln -s /mnt/config/settings.json settings.json
+RUN ln -s /mnt/config/settings.json settings.json; ln -s /mnt/config/logs logs
 
-CMD mono SteamBot.exe
+CMD unbuffer mono SteamBot.exe
